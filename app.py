@@ -4,11 +4,9 @@ import plotly.express as px
 import os
 from datetime import datetime
 from google import genai
-from dotenv import load_dotenv
 
 # --- Load API key from .env ---
-load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = st.secrets.get("GEMINI_API_KEY")
 
 # --- System & API settings ---
 st.set_page_config(page_title="Leia's Diary", page_icon="🐱", layout='wide')
@@ -87,6 +85,8 @@ def get_ai_diagnosis(name, breed, gender, age_str, current_weight, history_df):
 
 # --- App Main Title ---
 st.title(f"{cat_name}'s Diary")
+st.write("Built as a portfolio project for AI integration and rapid prototyping. (also for my lovely cat Leia)")
+st.write("Available for freelance AI development work. Cantact: https://www.linkedin.com/in/jun-jo-07834510a/")
 
 # --- AI Consultant Section ---
 st.subheader("🤖 AI Health Specialist (Gemini)")
